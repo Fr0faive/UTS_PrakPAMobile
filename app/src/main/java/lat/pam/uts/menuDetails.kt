@@ -3,6 +3,7 @@ package lat.pam.uts
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
+@Suppress("DEPRECATION")
 class menuDetails : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

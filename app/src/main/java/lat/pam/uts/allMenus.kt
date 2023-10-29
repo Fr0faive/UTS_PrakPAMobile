@@ -3,11 +3,13 @@ package lat.pam.uts
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.PackageManagerCompat.LOG_TAG
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -29,13 +31,16 @@ class allMenus : AppCompatActivity(), CardListAdapter.OnItemClickListener {
         val textView = findViewById<TextView>(R.id.label_nama)
         textView.text = "Hello, "+nama
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        recyclerView.adapter = CardListAdapter(cardList)
+        val adapter = CardListAdapter(cardList)
+        adapter.setOnItemClickListener(this) // Pastikan listener diatur dengan benar
+        recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
     }
 
     override fun onItemClick(cardItem: CardListAdapter.CardItem) {
         // Buka halaman detail dan kirim data CardItem
+        Log.d(LOG_TAG, "diklik")
         val intent = Intent(this, menuDetails::class.java)
         intent.putExtra("CARD_ITEM", cardItem)
         startActivity(intent)
