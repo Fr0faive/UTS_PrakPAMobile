@@ -21,10 +21,6 @@ class MainActivity : AppCompatActivity() {
         val namaUser = findViewById<EditText>(R.id.editText_name)
         val btnSubmit = findViewById<Button>(R.id.button_submit)
 
-
-
-
-
         btnSubmit?.setOnClickListener(View.OnClickListener {
             Log.d(LOG_TAG,"Button diklik")
             val Intent = Intent(this, restaurant_details::class.java)

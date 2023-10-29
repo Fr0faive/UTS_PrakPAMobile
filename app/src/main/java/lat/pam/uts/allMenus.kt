@@ -1,5 +1,6 @@
 package lat.pam.uts
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 
-class allMenus : AppCompatActivity() {
+class allMenus : AppCompatActivity(), CardListAdapter.OnItemClickListener {
     val EXTRA_NAMA = "lat.pam.uts.twoactivities.extra.nama"
     private val cardList = listOf(
         CardListAdapter.CardItem(R.drawable.pizza, "Pizza", "Cocok bagi anda yang ingin merasakan pizza original dengan taburan keju dan daging asap yang lezat"),
@@ -31,7 +32,13 @@ class allMenus : AppCompatActivity() {
         recyclerView.adapter = CardListAdapter(cardList)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
+    }
 
+    override fun onItemClick(cardItem: CardListAdapter.CardItem) {
+        // Buka halaman detail dan kirim data CardItem
+        val intent = Intent(this, menuDetails::class.java)
+        intent.putExtra("CARD_ITEM", cardItem)
+        startActivity(intent)
     }
 
 }

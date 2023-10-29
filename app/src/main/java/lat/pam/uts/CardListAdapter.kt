@@ -6,14 +6,25 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.io.Serializable
 
 class CardListAdapter(private val cardList: List<CardItem>) : RecyclerView.Adapter<CardListAdapter.CardViewHolder>() {
-    data class CardItem(val imageResource: Int, val title: String, val description: String)
+    data class CardItem(val imageResource: Int, val title: String, val description: String): Serializable
 
     class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
         val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
         val descriptionTextView: TextView = itemView.findViewById(R.id.descriptionTextView)
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(cardItem: CardItem)
+    }
+
+    private var listener: OnItemClickListener? = null
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.listener = listener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
@@ -26,6 +37,10 @@ class CardListAdapter(private val cardList: List<CardItem>) : RecyclerView.Adapt
         holder.imageView.setImageResource(currentItem.imageResource)
         holder.titleTextView.text = currentItem.title
         holder.descriptionTextView.text = currentItem.description
+
+        holder.itemView.setOnClickListener {
+            listener?.onItemClick(currentItem)
+        }
     }
 
     override fun getItemCount(): Int {
