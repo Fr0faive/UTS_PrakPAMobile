@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="50dp"
+    android:layout_gravity="center"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/banner" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="STORE"
+        android:layout_marginTop="5dp"
+        android:textSize="@dimen/textSizeBanner"
+        android:textStyle="bold"
+        android:textColor="@color/textColor"/>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:entries="@array/store_addresses"
+        android:outlineAmbientShadowColor="#000000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Name"
+        android:textSize="@dimen/textSizeBanner"
+        android:textStyle="bold"
+        android:textColor="@color/textColor"
+        android:layout_marginTop="5dp"/>
+
+    <EditText
+        android:id="@+id/editText_name"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="Fill Your Name"
+        android:background="@drawable/edittext_shadow"/>
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Submit"
+        android:textStyle="bold"
+        app:cornerRadius="0dp"
+        android:backgroundTint="@color/bgColor"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
