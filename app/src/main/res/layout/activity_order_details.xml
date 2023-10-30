@@ -4,6 +4,101 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="35dp"
     tools:context=".orderDetails">
+
+    <LinearLayout
+        android:id="@+id/order_detailtext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Order Detail"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/textColor"/>
+        <TextView
+            android:id="@+id/order_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="Asep"/>
+        <TextView
+            android:id="@+id/order_store"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Toko: CCCC"/>
+        <TextView
+            android:id="@+id/order_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Burger"/>
+        <TextView
+            android:id="@+id/title_send"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Pengiriman"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/textColor"/>
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radioButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/custom_radio_button"
+                android:text="Ambil Sendiri" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/custom_radio_button"
+                android:text="Fast Delivery (Minimal 30 menit sampai)" />
+
+            <!-- Tambahkan RadioButton sesuai kebutuhan -->
+        </RadioGroup>
+        <Button
+            android:id="@+id/btn_done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:cornerRadius="0dp"
+            android:backgroundTint="@color/bgColor"
+            android:textStyle="bold"
+            android:text="Done"/>
+
+        <RelativeLayout
+            android:id="@+id/order_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:visibility="invisible"
+            android:background="#C4C4C4">
+            <TextView
+                android:id="@+id/order_text_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#000000"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

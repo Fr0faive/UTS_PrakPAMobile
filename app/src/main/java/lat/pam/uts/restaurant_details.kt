@@ -29,6 +29,7 @@ class restaurant_details : AppCompatActivity() {
             Log.d(LOG_TAG, "Menu diklik")
             val Intent = Intent(this, allMenus::class.java)
             Intent.putExtra(EXTRA_NAMA, nama)
+            Intent.putExtra(EXTRA_LOC, locStore)
             startActivity(Intent)
         })
 

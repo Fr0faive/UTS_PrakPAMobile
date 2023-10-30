@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class allMenus : AppCompatActivity(), CardListAdapter.OnItemClickListener {
     val EXTRA_NAMA = "lat.pam.uts.twoactivities.extra.nama"
+    val EXTRA_LOC = "lat.pam.uts.twoactivities.extra.loc"
     private val cardList = listOf(
         CardListAdapter.CardItem(R.drawable.pizza, "Pizza", "Cocok bagi anda yang ingin merasakan pizza original dengan taburan keju dan daging asap yang lezat"),
         CardListAdapter.CardItem(R.drawable.spaghetti, "Spaghetti", "Cocok bagi anda yang ingin merasakan spaghetti original dengan bumbu yang oriental"),
@@ -41,7 +42,11 @@ class allMenus : AppCompatActivity(), CardListAdapter.OnItemClickListener {
     override fun onItemClick(cardItem: CardListAdapter.CardItem) {
         // Buka halaman detail dan kirim data CardItem
         Log.d(LOG_TAG, "diklik")
+        val nama = intent.getStringExtra(EXTRA_NAMA)
+        val locStore = intent.getStringExtra(EXTRA_LOC)
         val intent = Intent(this, menuDetails::class.java)
+        intent.putExtra(EXTRA_NAMA, nama)
+        intent.putExtra(EXTRA_LOC, locStore)
         intent.putExtra("CARD_ITEM", cardItem)
         startActivity(intent)
     }
